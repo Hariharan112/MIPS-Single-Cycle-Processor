@@ -2,7 +2,7 @@
 
 module ALU  (
     output [31:0] aluResult, 
-    input aluZero,
+    output aluZero,
     input [31:0] A32, B32,
     input [2:0] ALUop
 );
@@ -28,7 +28,64 @@ module ALU  (
         .in6(sub_out),
         .in7(slt_out),
         .out(aluResult)
-    )
-
-
+    );
 endmodule
+
+// Testbench to check module
+// `timescale 1ns / 1ps
+
+// module ALU_tb;
+
+//     reg [31:0] A32, B32;
+//     reg [2:0] ALUop;
+//     wire [31:0] aluResult;
+//     wire aluZero;
+
+//     ALU ALU_inst(
+//         .A32(A32),
+//         .B32(B32),
+//         .ALUop(ALUop),
+//         .aluResult(aluResult),
+//         .aluZero(aluZero)
+//     );
+
+//     initial begin
+//         $dumpfile("ALU_tb.vcd");
+//         $dumpvars(0, ALU_tb);
+        
+//         A32 = 32'h00000001;
+//         B32 = 32'h00000002;
+//         ALUop = 3'b000;
+//         #10;
+//         A32 = 32'h00000020;
+//         B32 = 32'h00000004;
+//         ALUop = 3'b001;
+//         #10;
+//         A32 = 32'h00000001;
+//         B32 = 32'h00000002;
+//         ALUop = 3'b010;
+//         #10;
+//         A32 = 32'h00000020;
+//         B32 = 32'h00000004;
+//         ALUop = 3'b011;
+//         #10;
+//         A32 = 32'h00000001;
+//         B32 = 32'h00000002;
+//         ALUop = 3'b100;
+//         #10;
+//         A32 = 32'h00000020;
+//         B32 = 32'h00000004;
+//         ALUop = 3'b101;
+//         #10;
+//         A32 = 32'h00000001;
+//         B32 = 32'h00000002;
+//         ALUop = 3'b110;
+//         #10;
+//         A32 = 32'h00000020;
+//         B32 = 32'h00000004;
+//         ALUop = 3'b111;
+//         #10;
+//         $finish;
+//     end
+
+// endmodule

@@ -2,10 +2,13 @@
 
 module top(
     input clk
-)
+);
 
 // Wires required
-
+wire [31:0] PCin, PCout, instruction, PCp4, writeregline, writedataline, regA, regB, extendedline, shiftExtendline, aluBline, aluresline, jumperline, datamemline;
+wire regdst, regwrite, branch, memread, mem2reg, memwrite, alusrc, aluZeroline;
+wire [1:0] ALUop;
+wire [2:0] aluOPline;
 // PC
 PC PC_reg (
     .address(PCin),
@@ -28,7 +31,7 @@ adderALU PCp4(
 );
 
 // regdst mux. Change. we need new mux...
-mux_2x1 regsel (
+mux2 regsel (
     .in_0(instruction[15:11]),
     .in_1(instur[20:16]),
     .sel(regdst),
@@ -100,7 +103,7 @@ adderALU Jumpctrl (
     .A(PCp4),
     .B(shiftExtendline),
     .result(jumperline)
-)
+);
 
 //Mux for PC control
 mux_2x1 pcp4_control (

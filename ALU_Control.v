@@ -33,3 +33,47 @@ module ALU_control(
         endcase
     end
 endmodule
+
+//testbench to check module
+// `timescale 1ns / 1ps
+// module ALU_control_tb;
+
+//     reg [5:0] FF;
+//     reg [1:0] ALUop;
+//     wire [2:0] ALU_control;
+
+//     ALU_control ALU_control_inst(
+//         .FF(FF),
+//         .ALUop(ALUop),
+//         .ALU_control(ALU_control)
+//     );
+
+//     initial begin
+//         $dumpfile("ALU_control_tb.vcd");
+//         $dumpvars(0, ALU_control_tb);
+        
+//         FF = 6'b000000;
+//         ALUop = 2'b00;
+//         #10;
+//         FF = 6'b000010;
+//         ALUop = 2'b01;
+//         #10;
+//         FF = 6'b000000;
+//         ALUop = 2'b10;
+//         #10;
+//         FF = 6'b000010;
+//         ALUop = 2'b10;
+//         #10;
+//         FF = 6'b000100;
+//         ALUop = 2'b10;
+//         #10;
+//         FF = 6'b000101;
+//         ALUop = 2'b10;
+//         #10;
+//         FF = 6'b001010;
+//         ALUop = 2'b10;
+//         #10;
+//         $finish;
+//     end
+
+// endmodule
